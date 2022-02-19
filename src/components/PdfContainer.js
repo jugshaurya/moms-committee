@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (props) => {
+const PdfContainer = (props) => {
   const bodyRef = React.createRef();
   const createPdf = () => props.createPdf(bodyRef.current);
   return (
@@ -28,3 +28,5 @@ export default (props) => {
     </section>
   );
 };
+
+export default PdfContainer;
