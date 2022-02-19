@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import InputMenu from './components/InputMenu';
+import OutputMenu from './components/OutputMenu';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row } from 'react-bootstrap';
+import PdfContainer from './components/PdfContainer';
+import generatePdf from './components/generatePdf';
+
+const createPdf = (html) => generatePdf.createPdf(html);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PdfContainer createPdf={createPdf}>
+        <Container>
+          <Row>
+            <InputMenu />
+            <OutputMenu committeeAmount={60000} totalMonths={12} />
+          </Row>
+        </Container>
+      </PdfContainer>
     </div>
   );
 }
