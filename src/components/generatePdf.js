@@ -1,10 +1,10 @@
 import { savePDF } from '@progress/kendo-react-pdf';
 
 class DocService {
-  createPdf = (html) => {
+  generate = (html) => {
     savePDF(html, {
       paperSize: 'Letter',
-      fileName: 'committee.pdf',
+      fileName: `committee-${new Date()}.pdf`,
       margin: 3,
     });
   };

@@ -4,13 +4,27 @@ export default (props) => {
   const bodyRef = React.createRef();
   const createPdf = () => props.createPdf(bodyRef.current);
   return (
-    <section className="pdf-container">
-      <section className="pdf-toolbar">
-        <button onClick={createPdf}>Create PDF</button>
+    <section>
+      <section
+        style={{
+          margin: '10px 10px',
+          textAlign: 'center',
+        }}
+      >
+        <button
+          style={{
+            borderRadius: '5px',
+            border: '3px solid salmon',
+            background: 'lightpink',
+            color: 'white',
+            fontWeight: 'bolder',
+          }}
+          onClick={createPdf}
+        >
+          Create PDF
+        </button>
       </section>
-      <section className="pdf-body" ref={bodyRef}>
-        {props.children}
-      </section>
+      <section ref={bodyRef}>{props.children}</section>
     </section>
   );
 };

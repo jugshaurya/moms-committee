@@ -1,7 +1,10 @@
-.App {
+.App{
+  text-align: left;
+
+}
+.outputmenutable {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
