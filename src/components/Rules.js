@@ -11,7 +11,7 @@ const Rules = () => {
         (2) Committee will be given on 15th of the Month.
       </ListGroup.Item>
       <ListGroup.Item>
-        (3) Rs.20 per day will be the fine for both Owner and Members.
+        (3) Rs.50 per day will be the fine for both Owner and Members.
       </ListGroup.Item>
     </ListGroup>
   );
