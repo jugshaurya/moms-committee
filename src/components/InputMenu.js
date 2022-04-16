@@ -1,7 +1,13 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-const InputMenu = ({ setComAmount, setTotalMonths, setStartMonth }) => {
+const InputMenu = ({
+  setComAmount,
+  setTotalMonths,
+  setStartMonth,
+  setShowOnePercentage,
+  showOnePercentage,
+}) => {
   return (
     <>
       <Form>
@@ -42,6 +48,18 @@ const InputMenu = ({ setComAmount, setTotalMonths, setStartMonth }) => {
             <option value="10">Nov</option>
             <option value="11">Dec</option>
           </Form.Select>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label></Form.Label>
+          <Form.Check
+            type="checkbox"
+            id={`default-checkbox`}
+            label={`Need 1% ?`}
+            checked={showOnePercentage}
+            onChange={() => {
+              setShowOnePercentage(!showOnePercentage);
+            }}
+          />
         </Form.Group>
       </Form>
     </>

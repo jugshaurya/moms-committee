@@ -29,10 +29,15 @@ const generateRows = (ca, tm, sm) => {
   for (let index = 0; index < totalMonths; index++) {
     const interestMonths = totalMonths - index - 1;
     const profit15 = committeeAmount * 0.015 * interestMonths;
+    const profit1 = committeeAmount * 0.01 * interestMonths;
     const perPerson15 =
       index === 1
         ? getprecisionBy2(perPersonCommitteeAmount)
         : getprecisionBy2(perPersonCommitteeAmount - profit15 / totalMonths);
+    const perPerson1 =
+      index === 1
+        ? getprecisionBy2(perPersonCommitteeAmount)
+        : getprecisionBy2(perPersonCommitteeAmount - profit1 / totalMonths);
 
     const currentYear = new Date().getFullYear();
     const indexYear = currentYear + parseInt((index + startMonth) / 12);
@@ -40,6 +45,8 @@ const generateRows = (ca, tm, sm) => {
 
     tableRows.push({
       month: currentMonth,
+      profit1: index === 1 ? 0 : profit1,
+      perPerson1: perPerson1,
       profit15: index === 1 ? 0 : profit15,
       perPerson15: perPerson15,
     });
@@ -48,11 +55,15 @@ const generateRows = (ca, tm, sm) => {
   return tableRows;
 };
 
-const OutputMenu = ({ committeeAmount, totalMonths, startMonth }) => {
+const OutputMenu = ({
+  committeeAmount,
+  totalMonths,
+  startMonth,
+  showOnePercentage,
+}) => {
   return (
     <Col xs="auto" className="outputmenu">
       <hr />
-
       <div>
         <strong>
           Total Committee Amount:{' '}
@@ -70,10 +81,14 @@ const OutputMenu = ({ committeeAmount, totalMonths, startMonth }) => {
           <tr>
             <th>S.No.</th>
             <th>Month/Year</th>
+            {showOnePercentage && (
+              <>
+                <th>Total Profit Box (1%)</th>
+                <th>perPerson Monthly Payment(1%)</th>
+              </>
+            )}
             <th>Profit (1.5%)</th>
             <th>Monthly Payment of a Person(1.5%)</th>
-            {/* <th>Total Profit Box (2%)</th>
-            <th>perPerson Monthly Payment(2%)</th> */}
           </tr>
         </thead>
         <tbody>
@@ -82,12 +97,18 @@ const OutputMenu = ({ committeeAmount, totalMonths, startMonth }) => {
               <tr key={idx}>
                 <td>{idx + 1}</td>
                 <td>{tableRow.month}</td>
+                {showOnePercentage && (
+                  <>
+                    <td>{tableRow.profit1 === 0 ? '-' : tableRow.profit1}</td>
+                    <td>
+                      {tableRow.prePerson1 === 0 ? '-' : tableRow.perPerson1}
+                    </td>
+                  </>
+                )}
                 <td>{tableRow.profit15 === 0 ? '-' : tableRow.profit15}</td>
                 <td>
                   {tableRow.perPerson15 === 0 ? '-' : tableRow.perPerson15}
                 </td>
-                {/* <td>{tableRow.profit20 === 0 ? '-' : tableRow.profit20}</td>
-              <td>{tableRow.prePerson20 === 0 ? '-' : tableRow.prePerson20}</td> */}
               </tr>
             ),
           )}
