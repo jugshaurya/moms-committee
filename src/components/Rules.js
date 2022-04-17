@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
-import './rules.css';
 
 const Rules = () => {
   const showDates = (id) => {
@@ -46,16 +44,16 @@ const Rules = () => {
   return (
     <ListGroup>
       <ListGroup.Item>
-        (1) Payment to be done between {showDates('from')} and {showDates('to')}{' '}
+        1) Payment to be done between {showDates('from')} and {showDates('to')}{' '}
         of a Month.
       </ListGroup.Item>
       <ListGroup.Item>
-        (2) Committee will be given on {showDates('committeeDate')} and of the
+        2) Committee will be given on {showDates('committeeDate')} and of the
         Month.
       </ListGroup.Item>
       <ListGroup.Item>
-        (3) Rs. {showDates('penalty')} and per day will be the fine for both
-        Owner and Members.
+        3) Rs. <input type="text" class="small" id="penalty" /> per day will be
+        the fine for both Owner and Members.
       </ListGroup.Item>
     </ListGroup>
   );
