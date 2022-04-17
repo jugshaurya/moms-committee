@@ -6,7 +6,9 @@ const InputMenu = ({
   setTotalMonths,
   setStartMonth,
   setShowOnePercentage,
+  setShow15Percentage,
   showOnePercentage,
+  show15Percentage,
 }) => {
   return (
     <>
@@ -53,11 +55,23 @@ const InputMenu = ({
           <Form.Label></Form.Label>
           <Form.Check
             type="checkbox"
-            id={`default-checkbox`}
+            id={`one-checkbox`}
             label={`Need 1% ?`}
             checked={showOnePercentage}
             onChange={() => {
               setShowOnePercentage(!showOnePercentage);
+            }}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label></Form.Label>
+          <Form.Check
+            type="checkbox"
+            id={`onehalf-checkbox`}
+            label={`Need 1.5% ?`}
+            checked={show15Percentage}
+            onChange={() => {
+              setShow15Percentage(!show15Percentage);
             }}
           />
         </Form.Group>

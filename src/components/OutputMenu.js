@@ -60,6 +60,7 @@ const OutputMenu = ({
   totalMonths,
   startMonth,
   showOnePercentage,
+  show15Percentage,
 }) => {
   return (
     <Col xs="auto" className="outputmenu">
@@ -87,8 +88,12 @@ const OutputMenu = ({
                 <th>perPerson Monthly Payment(1%)</th>
               </>
             )}
-            <th>Profit (1.5%)</th>
-            <th>Monthly Payment of a Person(1.5%)</th>
+            {show15Percentage && (
+              <>
+                <th>Profit (1.5%)</th>
+                <th>Monthly Payment of a Person(1.5%)</th>
+              </>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -105,10 +110,14 @@ const OutputMenu = ({
                     </td>
                   </>
                 )}
-                <td>{tableRow.profit15 === 0 ? '-' : tableRow.profit15}</td>
-                <td>
-                  {tableRow.perPerson15 === 0 ? '-' : tableRow.perPerson15}
-                </td>
+                {show15Percentage && (
+                  <>
+                    <td>{tableRow.profit15 === 0 ? '-' : tableRow.profit15}</td>
+                    <td>
+                      {tableRow.perPerson15 === 0 ? '-' : tableRow.perPerson15}
+                    </td>
+                  </>
+                )}
               </tr>
             ),
           )}

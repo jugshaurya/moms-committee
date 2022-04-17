@@ -16,6 +16,7 @@ function App() {
   const [totalMonths, setTotalMonths] = useState(0);
   const [startMonth, setStartMonth] = useState(0);
   const [showOnePercentage, setShowOnePercentage] = useState(false);
+  const [show15Percentage, setShow15Percentage] = useState(false);
 
   return (
     <div className="App">
@@ -31,7 +32,9 @@ function App() {
             setTotalMonths={setTotalMonths}
             setStartMonth={setStartMonth}
             setShowOnePercentage={setShowOnePercentage}
+            setShow15Percentage={setShow15Percentage}
             showOnePercentage={showOnePercentage}
+            show15Percentage={show15Percentage}
           />
         </Row>
         <PdfContainer createPdf={createPdf}>
@@ -41,6 +44,7 @@ function App() {
               totalMonths={totalMonths}
               startMonth={startMonth}
               showOnePercentage={showOnePercentage}
+              show15Percentage={show15Percentage}
             />
           </Row>
           <Row>
