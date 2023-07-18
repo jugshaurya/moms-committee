@@ -5,10 +5,12 @@ const InputMenu = ({
   setComAmount,
   setTotalMonths,
   setStartMonth,
-  setShowOnePercentage,
+  setShow1Percentage,
   setShow15Percentage,
-  showOnePercentage,
+  show1Percentage,
   show15Percentage,
+  show2Percentage,
+  setShow2Percentage,
 }) => {
   return (
     <>
@@ -57,9 +59,9 @@ const InputMenu = ({
             type="checkbox"
             id={`one-checkbox`}
             label={`Need 1% ?`}
-            checked={showOnePercentage}
+            checked={show1Percentage}
             onChange={() => {
-              setShowOnePercentage(!showOnePercentage);
+              setShow1Percentage(!show1Percentage);
             }}
           />
         </Form.Group>
@@ -72,6 +74,18 @@ const InputMenu = ({
             checked={show15Percentage}
             onChange={() => {
               setShow15Percentage(!show15Percentage);
+            }}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label></Form.Label>
+          <Form.Check
+            type="checkbox"
+            id={`two-checkbox`}
+            label={`Need 2% ?`}
+            checked={show2Percentage}
+            onChange={() => {
+              setShow2Percentage(!show2Percentage);
             }}
           />
         </Form.Group>

@@ -15,8 +15,9 @@ function App() {
   const [committeeAmount, setComAmount] = useState(0);
   const [totalMonths, setTotalMonths] = useState(0);
   const [startMonth, setStartMonth] = useState(0);
-  const [showOnePercentage, setShowOnePercentage] = useState(false);
+  const [show1Percentage, setShow1Percentage] = useState(false);
   const [show15Percentage, setShow15Percentage] = useState(false);
+  const [show2Percentage, setShow2Percentage] = useState(false);
 
   return (
     <div className="App">
@@ -31,10 +32,12 @@ function App() {
             setComAmount={setComAmount}
             setTotalMonths={setTotalMonths}
             setStartMonth={setStartMonth}
-            setShowOnePercentage={setShowOnePercentage}
+            setShow1Percentage={setShow1Percentage}
             setShow15Percentage={setShow15Percentage}
-            showOnePercentage={showOnePercentage}
+            setShow2Percentage={setShow2Percentage}
+            show1Percentage={show1Percentage}
             show15Percentage={show15Percentage}
+            show2Percentage={show2Percentage}
           />
         </Row>
         <PdfContainer createPdf={createPdf}>
@@ -43,8 +46,9 @@ function App() {
               committeeAmount={committeeAmount}
               totalMonths={totalMonths}
               startMonth={startMonth}
-              showOnePercentage={showOnePercentage}
+              show1Percentage={show1Percentage}
               show15Percentage={show15Percentage}
+              show2Percentage={show2Percentage}
             />
           </Row>
           <Row>
